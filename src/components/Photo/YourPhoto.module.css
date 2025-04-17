@@ -1,0 +1,22 @@
+.btn-container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+
+}
+
+.btn-container button {
+    /*font-size: 2rem;*/
+    /*padding: 1rem 2rem;*/
+
+    padding: 10px;
+    background-color: #007bff;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-container button:hover {
+    background-color: #0056b3;
+}
+

@@ -1,0 +1,30 @@
+/* Nuevo: contenedor para el selector de idioma */
+.language-selector {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Nuevo: estilo para los botones */
+.language-button {
+    padding: 0.5rem 1.2rem;
+    background-color: #2fd7e0;
+    color: #222;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.language-button:disabled {
+    background-color: #6fe4cc;
+    color: #222;
+    cursor: default;
+}
+
+.language-button:not(:disabled):hover {
+    background-color: #ff0095;
+    color: #fff;
+}

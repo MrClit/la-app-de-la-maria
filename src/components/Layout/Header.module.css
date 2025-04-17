@@ -1,0 +1,13 @@
+.title {
+    font-size: 6rem;
+    color: teal;
+    margin-top: 8rem;
+    text-align: center;
+}
+
+@media (max-width: 52em) {
+    .title {
+        font-size: 5rem;
+        margin-top: 4rem;
+    }
+}

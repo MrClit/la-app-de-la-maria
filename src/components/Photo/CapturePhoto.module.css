@@ -1,0 +1,28 @@
+.camera-container {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    border: 1px solid #e0e0e0; /* Borde sutil */
+    /*position: relative;*/
+    /*max-width: 90vw;*/
+    /*max-height: 90vh;*/
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.webcam {
+    width: 100%;
+    max-width: 70rem;
+    border-radius: 10px;
+    border: 2px solid #f0f0f0; /* Borde para la cámara */
+    overflow: hidden;
+}
+
+.controls-container {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    width: 100%;
+}

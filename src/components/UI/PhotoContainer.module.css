@@ -1,0 +1,94 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
+.title {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+.img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 35rem;
+    height: 35rem;
+    border: 2px solid #b1b1b1; /* Borde alrededor del contenedor */
+    border-radius: 15px; /* Bordes redondeados */
+    overflow: hidden; /* Asegura que la imagen no se salga del contenedor */
+    background-color: #959595; /* Color de fondo para cuando no haya imagen */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para estilo visual */
+
+    position: relative; /* Necesario para los pseudo-elementos */
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+
+.img-container.like-highlighted {
+    border: 8px solid #2e7d32;
+}
+
+.img-container.hate-highlighted {
+    border: 8px solid #d32f2f;
+}
+
+.img-container::after {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: inherit; /* Hereda los bordes redondeados */
+    border: solid transparent;
+    z-index: -1; /* Coloca el pseudo-elemento detrás del contenedor principal */
+}
+
+.img-container.like-highlighted::after {
+    border-color: rgba(46, 125, 50, 0.5); /* Verde transparente */
+    animation: pulse-border-animation 1s infinite ease-in-out;
+}
+
+.img-container.hate-highlighted::after {
+    border-color: rgba(211, 47, 47, 0.5); /* Rojo transparente */
+    animation: pulse-border-animation 1s infinite ease-in-out;
+}
+
+/* Animación de borde pulsante */
+@keyframes pulse-border-animation {
+    from {
+        transform: scale(1);
+        opacity: 1;
+        border-width: 2px;
+    }
+    to {
+        transform: scale(1.2);
+        opacity: 0.5;
+        border-width: 8px;
+    }
+}
+
+.img-container p {
+    font-size: 1.5rem;
+    align-self: center;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+}
+
+.img-container img {
+    width: 100%; /* La imagen no excede el ancho del contenedor */
+    height: 100%; /* La imagen no excede la altura del contenedor */
+    object-fit: cover; /* Ajusta la imagen dentro del espacio disponible sin distorsión */
+}
+
+
+@media (max-width: 74em) {
+    .img-container {
+        width: 30rem;
+        height: 30rem;
+    }
+}

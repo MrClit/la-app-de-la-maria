@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-family: "DynaPuff", system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    font-size: 62.5%;
+    letter-spacing: 0.2rem;
+
+    color-scheme: light dark;
+    color: #fff;
+    background-color: #242424;
+
+}
+
+@media (max-width: 74em) {
+    :root {
+        font-size: 56.25%;
+    }
+}
