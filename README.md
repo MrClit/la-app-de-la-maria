@@ -1,54 +1,78 @@
-# React + TypeScript + Vite
+# La App de la Maria
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, multilingual web application built with React, TypeScript, and Vite. The app allows users to upload or capture a photo, select an option (like or hate), and view a random animal image based on their choice. It features state management with Redux Toolkit and supports multiple languages via i18next.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 📸 Upload or capture a photo using your device's camera
+- 👍👎 Choose between "like" or "hate" options
+- 🐶 Get a random animal image from an external API
+- 🌐 Multilingual support (Catalan, Spanish, English)
+- 🗂️ Global state management with Redux Toolkit
+- 🎨 Responsive and accessible UI with Material UI
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
+- Node.js (v18 or higher recommended)
+- npm
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### Installation
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Start the development server:
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+npm run dev
 ```
+
+### Build
+
+Create a production build:
+
+```bash
+npm run build
+```
+
+Preview the production build:
+
+```bash
+npm run preview
+```
+
+### Linting
+
+Run ESLint to check code quality:
+
+```bash
+npm run lint
+```
+
+## Project Structure
+
+- `src/` — Main source code
+  - `components/` — React components grouped by feature
+  - `lang/` — Translation files (ca, es, en)
+  - `store/` — Redux Toolkit store and slices
+  - `i18n.ts` — i18next configuration
+  - `App.tsx` — Main app component
+- `public/` — Static assets
+- `index.html` — Main HTML file
+
+## Technologies Used
+- React 19
+- TypeScript
+- Vite
+- Redux Toolkit
+- i18next & react-i18next
+- Material UI
+- ESLint & Prettier
+
+## License
+
+This project is for educational and demonstration purposes.
