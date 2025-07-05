@@ -7,7 +7,7 @@ import { Modal } from "@mui/material";
 
 import classes from "./YourPhoto.module.css";
 import CapturePhoto from "./CapturePhoto.tsx";
-import { useAppSelector } from "../../store/hooks.ts";
+import { useAppContext } from "../../provider/AppContext";
 
 import LoadPhoto from "./LoadPhoto.tsx";
 import PhotoContainer from "../UI/PhotoContainer.tsx";
@@ -15,7 +15,7 @@ import { useTranslation } from "react-i18next";
 
 export default function YourPhoto() {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
-  const { photoSelected } = useAppSelector((state) => state.app);
+  const { photoSelected } = useAppContext();
   const [isCameraOpen, setIsCameraOpen] = useState(false);
 
   const { t } = useTranslation();

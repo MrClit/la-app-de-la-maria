@@ -1,13 +1,12 @@
 import { ChangeEvent, RefObject } from "react";
-import { useAppDispatch } from "../../store/hooks.ts";
-import { setPhotoSelected } from "../../store/slices/appSlice.ts";
+import { useAppContext } from "../../provider/AppContext";
 
 type LoadPhotoProps = {
   fileInputRef: RefObject<HTMLInputElement | null>;
 };
 
 export default function LoadPhoto({ fileInputRef }: LoadPhotoProps) {
-  const dispatch = useAppDispatch();
+  const { setPhotoSelected } = useAppContext();
 
   // Maneja la selección de archivo
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -16,7 +15,7 @@ export default function LoadPhoto({ fileInputRef }: LoadPhotoProps) {
       const reader = new FileReader();
 
       reader.onload = () => {
-        dispatch(setPhotoSelected(reader.result as string));
+        setPhotoSelected(reader.result as string);
       };
       reader.readAsDataURL(file); // Convierte el archivo a base64
     }

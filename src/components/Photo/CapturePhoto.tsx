@@ -7,8 +7,7 @@ import {
   Close as CloseIcon
 } from '@mui/icons-material';
 import IconButton from "@mui/material/IconButton";
-import {setPhotoSelected} from "../../store/slices/appSlice.ts";
-import {useAppDispatch} from "../../store/hooks.ts";
+import { useAppContext } from "../../provider/AppContext";
 
 type CapturePhotoProps = {
   setIsCameraOpen: (isCameraOpen: boolean) => void;
@@ -16,7 +15,7 @@ type CapturePhotoProps = {
 
 export default function CapturePhoto({ setIsCameraOpen}: CapturePhotoProps) {
   const webcamRef = useRef<Webcam | null>(null);
-  const dispatch = useAppDispatch();
+  const { setPhotoSelected } = useAppContext();
 
 
   // Configuración de la cámara
@@ -30,10 +29,10 @@ export default function CapturePhoto({ setIsCameraOpen}: CapturePhotoProps) {
   const capturePhoto = useCallback(() => {
     if (webcamRef.current) {
       const imageSrc = webcamRef.current.getScreenshot();
-      dispatch(setPhotoSelected(imageSrc))
+      setPhotoSelected(imageSrc);
       setIsCameraOpen(false); // Cierra la cámara después de capturar
     }
-  }, [dispatch, setIsCameraOpen]);
+  }, [setPhotoSelected, setIsCameraOpen]);
 
   return (
     <div className={classes["camera-container"]}>

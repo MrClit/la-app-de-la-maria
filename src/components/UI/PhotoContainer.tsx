@@ -1,6 +1,5 @@
 import { ReactNode } from "react";
-
-import { useAppSelector } from "../../store/hooks.ts";
+import { useAppContext } from "../../provider/AppContext";
 
 import classes from "./PhotoContainer.module.css";
 
@@ -17,7 +16,7 @@ export default function PhotoContainer({
   placeholder,
   children,
 }: PhotoContainerProps) {
-  const { option } = useAppSelector((state) => state.app);
+  const { option } = useAppContext();
 
   let highlightedClass = "";
 

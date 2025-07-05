@@ -1,11 +1,9 @@
 import { useEffect, useRef } from "react";
 
-import { useAppDispatch, useAppSelector } from "../../store/hooks.ts";
-import { setAnimalSelected } from "../../store/slices/appSlice.ts";
 import PhotoContainer from "../UI/PhotoContainer.tsx";
-
 import { getDogs } from "./ApiService.ts";
 import { useTranslation } from "react-i18next";
+import { useAppContext } from "../../provider/AppContext";
 
 type DogsApi = {
   message: string;
@@ -13,12 +11,8 @@ type DogsApi = {
 };
 
 export default function AnimalPicture() {
-  const dispatch = useAppDispatch();
-  const { option, photoSelected, animalSelected } = useAppSelector(
-    (state) => state.app,
-  );
+  const { option, photoSelected, animalSelected, setAnimalSelected } = useAppContext();
   const intervalRef = useRef<number | null>(null);
-
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -31,7 +25,7 @@ export default function AnimalPicture() {
           if (counter < totalUpdates) {
             try {
               const data = (await getDogs()) as DogsApi;
-              dispatch(setAnimalSelected(data.message));
+              setAnimalSelected(data.message);
               counter++;
             } catch (error) {
               console.error("Error fetching dog:", error);
@@ -42,16 +36,15 @@ export default function AnimalPicture() {
           }
         }, 100);
       }
-
-      return () => {
-        if (intervalRef.current) {
-          clearInterval(intervalRef.current);
-        }
-      };
     }
 
     fetchedDogs();
-  }, [option, photoSelected]);
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [option, photoSelected, setAnimalSelected]);
 
   return (
     <PhotoContainer

@@ -3,22 +3,20 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import HeartBrokenIcon from '@mui/icons-material/HeartBroken';
 
 import classes from './Actions.module.css'
-import {useAppDispatch, useAppSelector} from "../../store/hooks.ts";
-import {setOption} from "../../store/slices/appSlice.ts";
+import { useAppContext } from "../../provider/AppContext";
 
 export default function Actions() {
-  const dispatch = useAppDispatch();
-  const {photoSelected} = useAppSelector(state => state.app)
+  const { photoSelected, setOption } = useAppContext();
 
   function handleLikeClick() {
     if (photoSelected) {
-      dispatch(setOption('like'));
+      setOption('like');
     }
   }
 
   function handleHateClick() {
     if (photoSelected) {
-      dispatch(setOption('hate'));
+      setOption('hate');
     }
   }
 

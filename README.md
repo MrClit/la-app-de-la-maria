@@ -1,6 +1,6 @@
 # La App de la Maria
 
-A modern, multilingual web application built with React, TypeScript, and Vite. The app allows users to upload or capture a photo, select an option (like or hate), and view a random animal image based on their choice. It features state management with Redux Toolkit and supports multiple languages via i18next.
+A modern, multilingual web application built with React, TypeScript, and Vite. The app allows users to upload or capture a photo, select an option (like or hate), and view a random animal image based on their choice. It features global state management using React Context and supports multiple languages via i18next.
 
 ## Features
 
@@ -8,7 +8,7 @@ A modern, multilingual web application built with React, TypeScript, and Vite. T
 - 👍👎 Choose between "like" or "hate" options
 - 🐶 Get a random animal image from an external API
 - 🌐 Multilingual support (Catalan, Spanish, English)
-- 🗂️ Global state management with Redux Toolkit
+- 🗂️ Global state management with React Context
 - 🎨 Responsive and accessible UI with Material UI
 
 ## Getting Started
@@ -58,7 +58,7 @@ npm run lint
 - `src/` — Main source code
   - `components/` — React components grouped by feature
   - `lang/` — Translation files (ca, es, en)
-  - `store/` — Redux Toolkit store and slices
+  - `provider/` — React Context provider and hook
   - `i18n.ts` — i18next configuration
   - `App.tsx` — Main app component
 - `public/` — Static assets
@@ -68,7 +68,7 @@ npm run lint
 - React 19
 - TypeScript
 - Vite
-- Redux Toolkit
+- React Context API
 - i18next & react-i18next
 - Material UI
 - ESLint & Prettier
